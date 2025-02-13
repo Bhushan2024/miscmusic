@@ -1,0 +1,93 @@
+﻿@model Demo.Models.RegistrationViewModel
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="row justify-content-center my-5">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0" style="border-radius: 20px;">
+            <div class="card-body p-4">
+                <h3 class="text-center mb-4" style="color: #ff6f61;">Create Your Account</h3>
+                <form asp-action="Registration">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-success">
+                            @ViewBag.Message
+                        </div>
+                    }
+                    <div class="form-group">
+                        <label asp-for="Firstname" class="control-label">First Name</label>
+                        <input asp-for="Firstname" class="form-control" placeholder="Enter your first name" style="border-radius: 10px;" />
+                        <span asp-validation-for="Firstname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Lastname" class="control-label">Last Name</label>
+                        <input asp-for="Lastname" class="form-control" placeholder="Enter your last name" style="border-radius: 10px;" />
+                        <span asp-validation-for="Lastname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label">Email</label>
+                        <input asp-for="Email" class="form-control" placeholder="Enter your email" style="border-radius: 10px;" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Username" class="control-label">Username</label>
+                        <input asp-for="Username" class="form-control" placeholder="Choose a username" style="border-radius: 10px;" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label">Password</label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Create a password" style="border-radius: 10px;" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="confimPassword" class="control-label">Confirm Password</label>
+                        <input asp-for="confimPassword" type="password" class="form-control" placeholder="Confirm your password" style="border-radius: 10px;" />
+                        <span asp-validation-for="confimPassword" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group text-center">
+                        <input type="submit" value="Register" class="btn btn-primary custom-btn" />
+                    </div>
+                </form>
+                <p class="text-center mt-3">
+                    Already have an account? <a asp-action="Login" class="text-decoration-none custom-link">Login Now</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom Theme Styles */
+    .custom-btn {
+        background-color: #ff6f61;
+        border: none;
+        padding: 10px 30px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+    }
+
+        .custom-btn:hover {
+            background-color: #ff4a3d;
+        }
+
+    .custom-link {
+        color: #ff6f61;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .custom-link:hover {
+            color: #ff4a3d;
+        }
+</style>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

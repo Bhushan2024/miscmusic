@@ -1,0 +1,202 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\views\\account\\registration.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\entities\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\entities\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\entities\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\entities\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|c:\\users\\bhushan kadam\\desktop\\deploy\\demo\\demo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6B01C1A8-E577-49E3-821C-666E25EE9A51}|Demo\\Demo.csproj|solutionrelative:demo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 262,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Registration.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Views\\Account\\Registration.cshtml",
+              "RelativeDocumentMoniker": "Demo\\Views\\Account\\Registration.cshtml",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Views\\Account\\Registration.cshtml",
+              "RelativeToolTip": "Demo\\Views\\Account\\Registration.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T14:06:13.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Entities\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Demo\\Entities\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Entities\\AppDbContext.cs",
+              "RelativeToolTip": "Demo\\Entities\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:40:05.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "Demo\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "Demo\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T12:14:24.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Events.cs",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Entities\\Events.cs",
+              "RelativeDocumentMoniker": "Demo\\Entities\\Events.cs",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Entities\\Events.cs",
+              "RelativeToolTip": "Demo\\Entities\\Events.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA7wCIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T12:06:27.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Demo\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Demo\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwDsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-13T11:48:10.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "Demo\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "Demo\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T11:25:04.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Demo\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Demo\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwDcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T11:04:43.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\appsettings.json",
+              "RelativeDocumentMoniker": "Demo\\appsettings.json",
+              "ToolTip": "C:\\Users\\Bhushan Kadam\\Desktop\\Deploy\\Demo\\Demo\\appsettings.json",
+              "RelativeToolTip": "Demo\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-13T09:56:27.968Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 119,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

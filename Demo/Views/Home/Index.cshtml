@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - Music Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-section {
+            background: url('https://source.unsplash.com/1600x900/?music,concert') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+            .hero-section h1 {
+                font-size: 4rem;
+                font-weight: bold;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .hero-section p {
+                font-size: 1.5rem;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            }
+
+        .btn-primary {
+            background-color: #ff6f61;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+        }
+
+            .btn-primary:hover {
+                background-color: #ff4a3d;
+            }
+
+        .event-card {
+            transition: transform 0.3s ease;
+        }
+
+            .event-card:hover {
+                transform: scale(1.05);
+            }
+
+            .event-card img {
+                height: 200px;
+                object-fit: cover;
+            }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div>
+            <h1>Welcome to the Ultimate Music Experience</h1>
+            <p>Book your tickets now and enjoy the best live music events!</p>
+            <a href="/Account/Login" class="btn btn-primary">Login to Book Tickets</a>
+        </div>
+    </div>
+
+    <!-- Event Highlights Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Upcoming Events</h2>
+        <div class="row">
+            <!-- Rock Night 2023 -->
+            <div class="col-md-4 mb-4">
+                <div class="card event-card">
+                    <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg" class="card-img-top" alt="Rock Night 2023">
+                    <div class="card-body">
+                        <h5 class="card-title">Rock Night 2023</h5>
+                        <p class="card-text">Join us for an unforgettable night of rock music with top artists.</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Summer Beats Festival -->
+            <div class="col-md-4 mb-4">
+                <div class="card event-card">
+                    <img src="https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg" class="card-img-top" alt="Summer Beats Festival">
+                    <div class="card-body">
+                        <h5 class="card-title">Summer Beats Festival</h5>
+                        <p class="card-text">Experience the best of EDM and pop music this summer.</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Jazz Under the Stars -->
+            <div class="col-md-4 mb-4">
+                <div class="card event-card">
+                    <img src="https://images.pexels.com/photos/4087991/pexels-photo-4087991.jpeg" class="card-img-top" alt="Jazz Under the Stars">
+                    <div class="card-body">
+                        <h5 class="card-title">Jazz Under the Stars</h5>
+                        <p class="card-text">Relax and enjoy smooth jazz melodies under the night sky.</p>
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
