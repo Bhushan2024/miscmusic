@@ -11,38 +11,46 @@ namespace Demo.Controllers
     public class AccountController : Controller
     {
         private readonly AppDbContext _context;
+
+        // Static Admin Credentials
+        private const string AdminEmail = "admin@example.com";
+        private const string AdminPassword = "Admin@123";
+
         public AccountController(AppDbContext appDbContext)
         {
             _context = appDbContext;
         }
+
         public IActionResult Index()
         {
             return View(_context.Events.ToList());
         }
+
         public IActionResult Registration()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Registration(RegistrationViewModel model)
         {
             if (ModelState.IsValid)
             {
-                UserAccount account = new UserAccount();
-                
-                account.Firstname = model.Firstname;
-                account.Lastname = model.Lastname;
-                account.Email = model.Email;
-                account.Username = model.Username;
-                account.Password = model.Password;
+                UserAccount account = new UserAccount
+                {
+                    Firstname = model.Firstname,
+                    Lastname = model.Lastname,
+                    Email = model.Email,
+                    Username = model.Username,
+                    Password = model.Password
+                };
 
                 try
                 {
                     _context.UserAccounts.Add(account);
                     _context.SaveChanges();
                     ModelState.Clear();
-                    ViewBag.Message = $"{account.Firstname} {account.Lastname} register successfully, You can login now";
-
+                    ViewBag.Message = $"{account.Firstname} {account.Lastname} registered successfully, You can login now";
                 }
                 catch (Exception ex)
                 {
@@ -53,7 +61,9 @@ namespace Demo.Controllers
             }
             return View(model);
         }
-        public ActionResult Login() {
+
+        public ActionResult Login()
+        {
             return View();
         }
 
@@ -62,18 +72,39 @@ namespace Demo.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = _context.UserAccounts.Where(u =>( u.Username == model.UsernameOrEmail || u.Email == model.UsernameOrEmail) && u.Password == model.Password).FirstOrDefault();
+                // Check if the user is Admin
+                if (model.UsernameOrEmail == AdminEmail && model.Password == AdminPassword)
+                {
+                    var adminClaims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, "Admin"),
+                        new Claim("Name", "Admin"),
+                        new Claim(ClaimTypes.Role, "Admin")
+                    };
+
+                    var adminIdentity = new ClaimsIdentity(adminClaims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(adminIdentity));
+
+                    return RedirectToAction("AdminHomePage");
+                }
+
+                // Check if the user is a regular user from the database
+                var user = _context.UserAccounts
+                    .Where(u => (u.Username == model.UsernameOrEmail || u.Email == model.UsernameOrEmail) && u.Password == model.Password)
+                    .FirstOrDefault();
+
                 if (user != null)
                 {
-                    //return RedirectToAction("Index");
-                    var claims = new List<Claim>
+                    var userClaims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, user.Email),
+                        new Claim(ClaimTypes.Name, user.Firstname),
                         new Claim("Name", user.Firstname),
                         new Claim(ClaimTypes.Role, "User")
                     };
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+                    var userIdentity = new ClaimsIdentity(userClaims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(userIdentity));
+
                     return RedirectToAction("SecurePage");
                 }
                 else
@@ -87,14 +118,37 @@ namespace Demo.Controllers
         public IActionResult LogOut()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home"); 
         }
 
-        [Authorize]
+
+        [Authorize(Roles = "User")]
         public IActionResult SecurePage()
         {
             ViewBag.Name = HttpContext.User.Identity.Name;
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminHomePage()
+        {
+            var events = _context.Events
+                .Select(e => new EventViewModel
+                {
+                    EventName = e.EventName,
+                    EventDescription = e.EventDescription,
+                    EventLocation = e.EventLocation,
+                    EventDate = e.EventDate,
+                    EventTime = e.EventTime,
+                    EventOrganizer = e.EventOrganizer,
+                    EventOrganizerContact = e.EventOrganizerContact,
+                    IsBookingAvailable = e.IsBookingAvailable,
+                    TotalSeats = e.TotalSeats,
+                }).ToList();
+
+            // 🔹 Ensure the model is not null before passing it to the view
+            return View(events ?? new List<EventViewModel>());
+        }
+
     }
 }

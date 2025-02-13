@@ -1,0 +1,90 @@
+﻿@model List<Demo.Models.EventViewModel>
+
+@{
+    ViewData["Title"] = "Admin - Event Management";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 style="color: #ff6f61;">Event Management</h2>
+        <a href="@Url.Action("AddEvent", "Admin")" class="btn btn-primary custom-btn">+ Add Event</a>
+    </div>
+
+    <div class="row">
+        @foreach (var eventItem in Model)
+        {
+            <div class="col-md-4 mb-4 event-card-container">
+                <div class="card event-card shadow-lg border-0" style="border-radius: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: #ff6f61;">@eventItem.EventName</h5>
+                        <p class="card-text">@eventItem.EventDescription</p>
+                        <p><strong>Location:</strong> @eventItem.EventLocation</p>
+                        <p><strong>Date:</strong> @eventItem.EventDate.ToShortDateString()</p>
+                        <p><strong>Time:</strong> @eventItem.EventTime</p>
+                        <p><strong>Organizer:</strong> @eventItem.EventOrganizer</p>
+                        <p><strong>Contact:</strong> @eventItem.EventOrganizerContact</p>
+                        <p><strong>Seats:</strong> @eventItem.BookedSeats / @eventItem.TotalSeats</p>
+
+                        @if (eventItem.IsBookingAvailable)
+                        {
+                            <span class="badge custom-badge-open">Booking Open</span>
+                        }
+                        else
+                        {
+                            <span class="badge custom-badge-closed">Closed</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    /* Custom Theme Styles */
+    .custom-btn {
+        background-color: #ff6f61;
+        border: none;
+        padding: 10px 30px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        transition: background-color 0.3s ease;
+    }
+
+    .custom-btn:hover {
+        background-color: #ff4a3d;
+    }
+
+    .event-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .event-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-badge-open {
+        background-color: #28a745;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    .custom-badge-closed {
+        background-color: #dc3545;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+</style>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Smooth fade-in effect for event cards
+            $(".event-card-container").hide().fadeIn(1000);
+        });
+    </script>
+}
