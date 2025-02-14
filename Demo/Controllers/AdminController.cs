@@ -1,7 +1,9 @@
 ﻿using Demo.Entities;
+using Demo.Migrations;
 using Demo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace Demo.Controllers
@@ -16,7 +18,6 @@ namespace Demo.Controllers
             _context = context;
         }
 
-        // Show Admin Home Page with List of Events
         public IActionResult AdminHomePage()
         {
             var events = _context.Events
@@ -37,7 +38,6 @@ namespace Demo.Controllers
             return View(events);
         }
 
-        // Show the Add Event Form
         public IActionResult AddEvent()
         {
             return View(new EventViewModel());
@@ -58,6 +58,7 @@ namespace Demo.Controllers
                     EventOrganizer = model.EventOrganizer,
                     EventOrganizerContact = model.EventOrganizerContact,
                     IsBookingAvailable = model.IsBookingAvailable,
+                    TicketPrice = model.TicketPrice,
                     TotalSeats = model.TotalSeats,
                     BookedSeats = 0
                 };
@@ -70,6 +71,53 @@ namespace Demo.Controllers
 
             return View(model);
         }
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public IActionResult ToggleBookingStatus(int eventId)
+        {
+            var eventEntity = _context.Events.FirstOrDefault(e => e.Id == eventId);
 
+            if (eventEntity == null)
+            {
+                return NotFound(new { message = "Event not found" });
+            }
+
+            if (eventEntity.EventDate > DateTime.Now && eventEntity.BookedSeats < eventEntity.TotalSeats)
+            {
+                eventEntity.IsBookingAvailable = !eventEntity.IsBookingAvailable;
+                _context.SaveChanges();
+                return RedirectToAction("AdminHomePage", "Account");
+            }
+
+            return BadRequest(new { success = false, message = "Cannot enable booking. Event is either in the past or fully booked." });
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminBooking(int eventId)
+        {
+            var eventDetails = _context.Events
+                .Where(e => e.Id == eventId)
+                .FirstOrDefault();
+
+            if (eventDetails == null)
+            {
+                return NotFound();
+            }
+
+            var bookings = _context.UserBookings
+                .Where(b => b.EventId == eventId)
+                .Include(b => b.User) 
+                .ToList();
+
+
+            var viewModel = new EventBookingViewModel
+            {
+                Event = eventDetails,
+                Bookings = bookings
+            };
+
+            return View(viewModel);
+        }
     }
 }
+

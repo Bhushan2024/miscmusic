@@ -1,16 +1,44 @@
-﻿@if(Context.User.Identity.Name != null)
+﻿@using System.Security.Claims
+@if (Context.User.Identity.IsAuthenticated)
 {
-    <form asp-controller="Account" asp-action="LogOut" id="logoutForm" method="post">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a class="nav-link text-dark" asp-controller="Account" asp-action="Profile">Hello, @Context.User.Identity.Name</a></li>
-            <li><button type="submit" class="nav-link btn btn-link text-dark">Logout</button></li>
-        </ul>
-        </form>
-}
-else{
-    <ul class="nav navbar-nav navbar-right">
-        <li><a class="nav-link text-dark" asp-controller="Account" asp-action="Registration">Register</a></li>
-        <li><a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a></li>
-    </ul>
+    string role = Context.User.FindFirstValue(ClaimTypes.Role);
 
+    <form asp-controller="Account" asp-action="LogOut" id="logoutForm" method="post" class="d-flex align-items-center">
+        <ul class="navbar-nav ms-auto">
+            @if (role == "User")
+            {
+                <li class="nav-item">
+                    <a class="nav-link custom-link" asp-controller="User" asp-action="UserHomePage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" asp-controller="Booking" asp-action="MyBookings">My Bookings</a>
+                </li>
+                <li class="nav-item">
+                    <button type="submit" class="nav-link btn btn-link custom-link">Logout</button>
+                </li>
+            }
+            else if (role == "Admin")
+            {
+                <li class="nav-item">
+                    <a class="nav-link custom-link" asp-controller="Account" asp-action="AdminHomePage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <button type="submit" class="nav-link btn btn-link custom-link">
+                        @Context.User.Identity.Name Logout
+                    </button>
+                </li>
+            }
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link custom-link" asp-controller="Account" asp-action="Registration">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link custom-link" asp-controller="Account" asp-action="Login">Login</a>
+        </li>
+    </ul>
 }

@@ -4,6 +4,7 @@ using Demo.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Demo.Controllers
 {
@@ -82,10 +83,11 @@ namespace Demo.Controllers
             if (model.SeatsBooked > eventDetails.TotalSeats - eventDetails.BookedSeats)
             {
                 ModelState.AddModelError("SeatsBooked", "Not enough seats available.");
-                return View(model); // Return to the form if seats are not available
+                return View(model); 
             }
-
-            var userId = 1; // Replace with actual user ID logic
+            string stringUserId = User.FindFirstValue("UserId");  
+            int userId = int.Parse(stringUserId);
+            //var userId = 1; 
             var userBooking = new UserBooking
             {
                 EventId = model.EventId,
@@ -98,13 +100,11 @@ namespace Demo.Controllers
             _context.UserBookings.Add(userBooking);
             _context.SaveChanges();
 
-            // Ticket Price calculation
-            var ticketPrice = eventDetails.TicketPrice; // Get the ticket price from the event
-            var gstRate = 0.18m; // 18% GST
+            var ticketPrice = eventDetails.TicketPrice; 
+            var gstRate = 0.18m; 
             var gstAmount = ticketPrice * model.SeatsBooked * gstRate;
             var totalAmount = (ticketPrice * model.SeatsBooked) + gstAmount;
 
-            // Redirect to payment page with necessary details
             return RedirectToAction("Payment", new
             {
                 bookingId = userBooking.Id,
@@ -126,7 +126,7 @@ namespace Demo.Controllers
                 TotalAmount = totalAmount,
                 SeatsBooked = seatsBooked,
                 TicketPrice = ticketPrice,
-                GstAmount = gstAmount // Pass GST amount to the view
+                GstAmount = gstAmount 
             };
 
             return View(model);
@@ -149,8 +149,8 @@ namespace Demo.Controllers
                     CardHolderName = model.CardHolderName,
                     ExpiryDate = model.ExpiryDate,
                     CVV = model.CVV,
-                    Status = "Success", // This should be updated after actual payment processing
-                    TransactionId = Guid.NewGuid().ToString() // Example transaction ID
+                    Status = "Success",
+                    TransactionId = Guid.NewGuid().ToString() 
                 };
 
                 _context.Payments.Add(paymentDetails);

@@ -14,7 +14,7 @@
             <p class="card-text" style="color: #555;">@Model.EventDescription</p>
             <p><strong>Location:</strong> @Model.EventLocation</p>
             <p><strong>Date:</strong> @Model.EventDate.ToLongDateString() at @Model.EventTime</p>
-            <p><strong>Seats Available:</strong> <span class="badge bg-success">@Model.TotalSeats - @Model.BookedSeats</span></p>
+            <p><strong>Seats Available:</strong> <span class="badge bg-success">@(Model.TotalSeats - Model.BookedSeats)</span></p>
         </div>
     </div>
 

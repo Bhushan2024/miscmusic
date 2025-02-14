@@ -99,6 +99,7 @@ namespace Demo.Controllers
                     {
                         new Claim(ClaimTypes.Name, user.Firstname),
                         new Claim("Name", user.Firstname),
+                        new Claim("UserId", user.Id.ToString()),
                         new Claim(ClaimTypes.Role, "User")
                     };
 
@@ -129,6 +130,7 @@ namespace Demo.Controllers
             var events = _context.Events
                 .Select(e => new EventViewModel
                 {
+                    Id=e.Id,
                     EventName = e.EventName,
                     EventDescription = e.EventDescription,
                     EventLocation = e.EventLocation,
@@ -138,6 +140,7 @@ namespace Demo.Controllers
                     EventOrganizerContact = e.EventOrganizerContact,
                     IsBookingAvailable = e.IsBookingAvailable,
                     TotalSeats = e.TotalSeats,
+                    BookedSeats = e.BookedSeats
                 }).ToList();
 
             // 🔹 Ensure the model is not null before passing it to the view

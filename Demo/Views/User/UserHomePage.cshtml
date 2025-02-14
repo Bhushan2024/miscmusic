@@ -31,7 +31,7 @@
                             <p class="card-text">@eventItem.EventDescription</p>
                             <p><i class="bi bi-geo-alt"></i> <strong>Location:</strong> @eventItem.EventLocation</p>
                             <p><i class="bi bi-calendar"></i> <strong>Date:</strong> @eventItem.EventDate.ToShortDateString() at @eventItem.EventTime</p>
-                            <p><i class="bi bi-people"></i> <strong>Seats Available:</strong> @eventItem.TotalSeats - @eventItem.BookedSeats</p>
+                            <p><i class="bi bi-people"></i> <strong>Seats Available:</strong> @(eventItem.TotalSeats - eventItem.BookedSeats)</p>
                             <a href="@Url.Action("BookEvent", "User", new { eventId = eventItem.Id })" class="btn custom-btn">Book Now</a>
                         </div>
                     </div>
@@ -60,7 +60,8 @@
                             <p class="card-text">@eventItem.EventDescription</p>
                             <p><i class="bi bi-geo-alt"></i> <strong>Location:</strong> @eventItem.EventLocation</p>
                             <p><i class="bi bi-calendar"></i> <strong>Date:</strong> @eventItem.EventDate.ToShortDateString() at @eventItem.EventTime</p>
-                            <p><i class="bi bi-people"></i> <strong>Seats Available:</strong> @eventItem.TotalSeats - @eventItem.BookedSeats</p>
+                            <p><i class="bi bi-people"></i> <strong>Seats Available:</strong> @(eventItem.TotalSeats - eventItem.BookedSeats)</p>
+
                             <button class="btn btn-secondary" disabled>Coming Soon</button>
                         </div>
                     </div>

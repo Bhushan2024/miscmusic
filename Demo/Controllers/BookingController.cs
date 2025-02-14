@@ -21,7 +21,9 @@ namespace Demo.Controllers
 
         public async Task<IActionResult> MyBookings()
         {
-            int userId = 1;
+            //int userId = 1;
+            string stringUserId = User.FindFirstValue("UserId");
+            int userId = int.Parse(stringUserId);
 
             var userBookings = await _context.UserBookings
                 .Where(b => b.UserId == userId)

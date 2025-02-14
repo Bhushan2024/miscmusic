@@ -6,6 +6,8 @@ namespace Demo.Models
 {
     public class EventViewModel
     {
+        public int? Id { get; set; }
+
         [Required(ErrorMessage = "Event Name is required")]
         [MaxLength(200, ErrorMessage = "Event Name cannot exceed 200 characters")]
         public string EventName { get; set; }
