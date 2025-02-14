@@ -10,6 +10,7 @@ namespace Demo.Entities
         public DbSet<Event> Events { get; set; }
         public DbSet<UserBooking> UserBookings { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Admin> Admins { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

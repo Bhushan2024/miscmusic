@@ -12,7 +12,7 @@ namespace Demo.Controllers
     {
         private readonly AppDbContext _context;
 
-        // Static Admin Credentials
+        // Static Admin Credentials for testing
         private const string AdminEmail = "admin@example.com";
         private const string AdminPassword = "Admin@123";
 
@@ -72,8 +72,11 @@ namespace Demo.Controllers
         {
             if (ModelState.IsValid)
             {
+                var admin = _context.Admins
+                    .FirstOrDefault();
+
                 // Check if the user is Admin
-                if (model.UsernameOrEmail == AdminEmail && model.Password == AdminPassword)
+                if (model.UsernameOrEmail == admin.Adminemail && model.Password == admin.Adminpassword)
                 {
                     var adminClaims = new List<Claim>
                     {
