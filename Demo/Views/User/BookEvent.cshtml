@@ -1,0 +1,31 @@
+﻿@model Demo.Models.UserBookingViewModel
+
+@{
+    ViewData["Title"] = "Book Event";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Book Event: @Model.EventName</h2>
+
+    <!-- Event Details Box -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">@Model.EventName</h5>
+            <p class="card-text">@Model.EventDescription</p>
+            <p><strong>Location:</strong> @Model.EventLocation</p>
+            <p><strong>Date:</strong> @Model.EventDate.ToShortDateString() at @Model.EventTime</p>
+            <p><strong>Seats Available:</strong> @Model.TotalSeats - @Model.BookedSeats</p>
+        </div>
+    </div>
+
+    <!-- Booking Form -->
+    <h3>Book Your Ticket</h3>
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Seats to Book</label>
+            <input type="number" asp-for="SeatsBooked" class="form-control" min="1" max="@Model.TotalSeats - @Model.BookedSeats" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Book Now</button>
+    </form>
+</div>

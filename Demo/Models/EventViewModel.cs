@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo.Entities;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Demo.Models
@@ -23,6 +24,10 @@ namespace Demo.Models
 
         [Required(ErrorMessage = "Organizer name is required")]
         public string EventOrganizer { get; set; }
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Ticket price must be greater than 0.")]
+        public int TicketPrice { get; set; }
+
 
         [Required(ErrorMessage = "Organizer contact is required")]
         [Phone(ErrorMessage = "Invalid phone number")]
@@ -34,5 +39,10 @@ namespace Demo.Models
         public int BookedSeats { get; set; }
 
         public bool IsBookingAvailable { get; set; }
+    }
+    public class UserEventViewModel
+    {
+        public List<Event> CurrentEvents { get; set; }
+        public List<Event> UpcomingEvents { get; set; }
     }
 }

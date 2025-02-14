@@ -33,6 +33,11 @@
                     <input type="date" asp-for="EventDate" class="form-control custom-input" value="@DateTime.Now.ToString("yyyy-MM-dd")">
                     <span class="text-danger" asp-validation-for="EventDate"></span>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Ticket Prize</label>
+                    <input type="number" asp-for="TicketPrice" class="form-control custom-input">
+                    <span class="text-danger" asp-validation-for="TicketPrice"></span>
+                </div>
             </div>
 
             <div class="col-md-6">

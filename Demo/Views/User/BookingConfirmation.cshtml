@@ -1,0 +1,20 @@
+﻿@model Demo.Entities.UserBooking
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">Booking Confirmation</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Booking for @Model.Event.EventName</h5>
+            <p><strong>Seats Booked:</strong> @Model.SeatsBooked</p>
+            <p><strong>Status:</strong> @Model.BookingStatus</p>
+            <p><strong>Booking Date:</strong> @Model.BookingDate.ToShortDateString()</p>
+
+            <a href="@Url.Action("Index", "User")" class="btn btn-primary">Go to Home</a>
+        </div>
+    </div>
+</div>

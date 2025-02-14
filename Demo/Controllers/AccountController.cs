@@ -105,7 +105,7 @@ namespace Demo.Controllers
                     var userIdentity = new ClaimsIdentity(userClaims, CookieAuthenticationDefaults.AuthenticationScheme);
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(userIdentity));
 
-                    return RedirectToAction("SecurePage");
+                    return RedirectToAction("UserHomePage", "User");
                 }
                 else
                 {
@@ -121,13 +121,7 @@ namespace Demo.Controllers
             return RedirectToAction("Index", "Home"); 
         }
 
-
-        [Authorize(Roles = "User")]
-        public IActionResult SecurePage()
-        {
-            ViewBag.Name = HttpContext.User.Identity.Name;
-            return View();
-        }
+        
 
         [Authorize(Roles = "Admin")]
         public IActionResult AdminHomePage()

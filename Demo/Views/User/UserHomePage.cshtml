@@ -1,0 +1,140 @@
+﻿@model Demo.Models.UserEventViewModel
+
+@{
+    ViewData["Title"] = "User Home - Events";
+    var successMessage = TempData["SuccessMessage"];
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="color: #ff6f61;">User Home - Events</h2>
+
+    @if (successMessage != null)
+    {
+        <div class="alert alert-success">
+            @successMessage
+        </div>
+    }
+
+    <!-- Current Events (Booking Open) -->
+    <h3 class="mt-4" style="color: #ff6f61;">Current Events</h3>
+    @if (Model.CurrentEvents != null && Model.CurrentEvents.Any())
+    {
+        <div class="row">
+            @foreach (var eventItem in Model.CurrentEvents)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card event-card shadow-sm">
+                        <div class="card-header text-white" style="background-color: #ff6f61;">
+                            <h5 class="card-title mb-0">@eventItem.EventName</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@eventItem.EventDescription</p>
+                            <p><i class="bi bi-geo-alt"></i> <strong>Location:</strong> @eventItem.EventLocation</p>
+                            <p><i class="bi bi-calendar"></i> <strong>Date:</strong> @eventItem.EventDate.ToShortDateString() at @eventItem.EventTime</p>
+                            <p><i class="bi bi-people"></i> <strong>Seats Available:</strong> @eventItem.TotalSeats - @eventItem.BookedSeats</p>
+                            <a href="@Url.Action("BookEvent", "User", new { eventId = eventItem.Id })" class="btn custom-btn">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-muted">No current events available for booking at the moment.</p>
+    }
+
+    <!-- Upcoming Events (Booking Closed) -->
+    <h3 class="mt-5" style="color: #ff6f61;">Upcoming Events</h3>
+    @if (Model.UpcomingEvents != null && Model.UpcomingEvents.Any())
+    {
+        <div class="row">
+            @foreach (var eventItem in Model.UpcomingEvents)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card event-card shadow-sm">
+                        <div class="card-header text-white" style="background-color: #555;">
+                            <h5 class="card-title mb-0">@eventItem.EventName</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">@eventItem.EventDescription</p>
+                            <p><i class="bi bi-geo-alt"></i> <strong>Location:</strong> @eventItem.EventLocation</p>
+                            <p><i class="bi bi-calendar"></i> <strong>Date:</strong> @eventItem.EventDate.ToShortDateString() at @eventItem.EventTime</p>
+                            <p><i class="bi bi-people"></i> <strong>Seats Available:</strong> @eventItem.TotalSeats - @eventItem.BookedSeats</p>
+                            <button class="btn btn-secondary" disabled>Coming Soon</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-muted">No upcoming events available.</p>
+    }
+</div>
+
+<!-- Add custom CSS here for better layout -->
+<style>
+    .event-card {
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-card .card-header {
+            padding: 15px;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .event-card .card-body {
+            padding: 20px;
+            background: #fff;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .event-card .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .event-card .card-text {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+    .custom-btn {
+        background-color: #ff6f61;
+        color: white;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+        .custom-btn:hover {
+            background-color: #ff4a3d;
+        }
+
+    .text-muted {
+        text-align: center;
+        font-style: italic;
+        color: #999;
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+</style>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+}

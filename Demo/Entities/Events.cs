@@ -22,7 +22,9 @@ namespace Demo.Entities
         public DateTime EventDate { get; set; } 
 
         [Required]
-        public TimeSpan EventTime { get; set; } 
+        public TimeSpan EventTime { get; set; }
+        [Required]
+        public int TicketPrice { get; set; }
 
         [Required]
         [MaxLength(200)]

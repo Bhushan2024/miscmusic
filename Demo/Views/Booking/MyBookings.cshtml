@@ -1,0 +1,48 @@
+﻿@model List<Demo.Models.BookingViewModel>
+
+@{
+    ViewData["Title"] = "My Bookings";
+    int serialNumber = 1; 
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">My Bookings</h2>
+
+    @if (Model.Any())
+    {
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Sr. No</th> 
+                    <th>Event Name</th>
+                    <th>Seats Booked</th>
+                    <th>Total Amount</th>
+                    <th>Booking Status</th>
+                    <th>Booking Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@serialNumber</td>
+                        <td>@booking.EventName</td>
+                        <td>@booking.SeatsBooked</td>
+                        <td>@booking.TotalAmount.ToString("C")</td>
+                        <td>
+                            <span class="badge @(booking.BookingStatus == "Confirmed" ? "bg-success" : "bg-warning")">
+                                @booking.BookingStatus
+                            </span>
+                        </td>
+                        <td>@booking.BookingDate.ToString("dd-MMM-yyyy")</td>
+                    </tr>
+                    serialNumber++;
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-center mt-4">No bookings found.</p>
+    }
+</div>
