@@ -5,52 +5,82 @@
 }
 
 <div class="container mt-5">
-    <h2 class="text-center">Payment</h2>
+    <h2 class="text-center mb-4" style="color: #ff6f61;">Payment</h2>
 
     <!-- Payment Breakdown -->
-    <div class="card mb-4">
+    <div class="card shadow-sm mb-4 rounded-3 border-0">
         <div class="card-body">
-            <h5 class="card-title">Booking Details</h5>
+            <h5 class="card-title" style="color: #333; font-weight: bold;">Booking Details</h5>
             <p><strong>Seats Booked:</strong> @Model.SeatsBooked</p>
-            <p><strong>Ticket Price:</strong> @Model.TicketPrice</p>
-            <p><strong>GST (18%):</strong> @Model.GstAmount</p>
-            <p><strong>Total Amount:</strong> @Model.TotalAmount</p>
+            <p><strong>Ticket Price:</strong> ₹@Model.TicketPrice</p>
+            <p><strong>GST (18%):</strong> ₹@Model.GstAmount</p>
+            <p><strong>Total Amount:</strong> <span class="text-success" style="font-weight: bold;">₹@Model.TotalAmount</span></p>
         </div>
     </div>
 
     <!-- Payment Form -->
-    <form method="post">
+    <h3 class="mb-3" style="color: #ff6f61;">Payment Details</h3>
+    <form method="post" class="shadow-sm p-4 rounded-3 bg-white border-0">
         <div class="mb-3">
-            <label class="form-label">Card Number</label>
-            <input type="text" class="form-control" asp-for="CardNumber" required />
-            <span asp-validation-for="CardNumber" class="text-danger"></span>
+            <label class="form-label" style="font-weight: bold;">Card Number</label>
+            <input type="text" class="form-control rounded-2" asp-for="CardNumber" required placeholder="xxxx xxxx xxxx xxxx" />
+            <span class="text-danger" asp-validation-for="CardNumber"></span>
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Card Holder Name</label>
-            <input type="text" class="form-control" asp-for="CardHolderName" required />
-            <span asp-validation-for="CardHolderName" class="text-danger"></span>
+            <label class="form-label" style="font-weight: bold;">Card Holder Name</label>
+            <input type="text" class="form-control rounded-2" asp-for="CardHolderName" required placeholder="John Doe" />
+            <span class="text-danger" asp-validation-for="CardHolderName"></span>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Expiry Date</label>
-            <input type="month" class="form-control" asp-for="ExpiryDate" required />
-            <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label" style="font-weight: bold;">Expiry Date</label>
+                <input type="month" class="form-control rounded-2" asp-for="ExpiryDate" required />
+                <span class="text-danger" asp-validation-for="ExpiryDate"></span>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label" style="font-weight: bold;">CVV</label>
+                <input type="password" class="form-control rounded-2" asp-for="CVV" required placeholder="***" maxlength="3" />
+                <span class="text-danger" asp-validation-for="CVV"></span>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">CVV</label>
-            <input type="text" class="form-control" asp-for="CVV" required />
-            <span asp-validation-for="CVV" class="text-danger"></span>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary px-5" style="background-color: #ff6f61; border: none;">
+                Confirm Payment
+            </button>
         </div>
-
-        <button type="submit" class="btn btn-primary">Confirm Payment</button>
     </form>
 </div>
 
-@section Scripts {
-    @* Ensure client-side validation is enabled *@
-    <script src="~/lib/jquery-3.6.0.min.js"></script>
-    <script src="~/lib/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery.validate.unobtrusive.min.js"></script>
-}
+<!-- Custom Styles -->
+<style>
+    .card {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+        background-color: #e85c50;
+    }
+
+    .form-control {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+        border-color: #ff6f61;
+    }
+
+    h2, h3 {
+        font-weight: 700;
+    }
+</style>
